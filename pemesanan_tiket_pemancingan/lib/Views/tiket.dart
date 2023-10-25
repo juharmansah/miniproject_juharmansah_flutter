@@ -5,7 +5,6 @@ import 'package:pemesanan_tiket_pemancingan/Views/drawer.dart';
 
 import '../ViewModels/repository.dart';
 
-
 class Tiket extends StatefulWidget {
   const Tiket({super.key});
 
@@ -20,11 +19,9 @@ class _TiketState extends State<Tiket> {
     // KolamModel(3, [], '1'),
   ];
 
-  void getKolam () async {
+  void getKolam() async {
     listKolam = await Repository().getKolam();
-    setState(() {
-
-    });
+    setState(() {});
   }
 
   @override
@@ -33,6 +30,7 @@ class _TiketState extends State<Tiket> {
     super.initState();
     getKolam();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -67,22 +65,28 @@ class _TiketState extends State<Tiket> {
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
                             Color warna = Colors.grey;
-                            bool terisi = false; 
-                            try{
-                              if(kolam.bangku[index].status == 'ada'){
+                            bool terisi = false;
+                            try {
+                              if (kolam.bangku[index].status == 'ada') {
                                 warna = Colors.green;
-                                terisi = true; 
+                                terisi = true;
                               }
-                            }
-                            catch(e){}
+                            } catch (e) {}
                             return Container(
                               height: 100,
                               width: 100,
                               color: warna,
                               child: TextButton(
                                   onPressed: () {
-                                    if (!terisi){
-                                      Navigator.pushNamed(context, "/jadwal_tiket");
+                                    if (!terisi) {
+                                      Navigator.pushNamed(
+                                        context,
+                                        "/jadwal_tiket",
+                                        arguments: {
+                                          'no_kolam': kolam.noKolam,
+                                          'bangku_model': kolam.bangku,
+                                        },
+                                      );
                                     }
                                   },
                                   child: Text('${index + 1}')),

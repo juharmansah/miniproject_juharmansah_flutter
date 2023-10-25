@@ -4,6 +4,7 @@ import 'package:pemesanan_tiket_pemancingan/Views/jadwal_tiket.dart';
 import 'package:pemesanan_tiket_pemancingan/Views/tiket.dart';
 import 'Views/splashscreen.dart';
 import 'Views/homepage.dart';
+import 'Views/jadwal_tiket.dart';
 
 void main() {
   runApp(MyApp());
@@ -17,13 +18,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/', // Set halaman awal ke splash screen
+      initialRoute: '/', 
       routes: {
         '/': (context) => Splash(),
         '/home': (context) => MyHomePage(),
         '/berita':(context) => Berita(),
         '/tiket':(context) => Tiket(),
-        // '/jadwal_tiket': (context) => Jadwaltiket(),
+        '/jadwal_tiket': (context) => Jadwaltiket(),
       },
     );
   }
