@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pemesanan_tiket_pemancingan/Models/bangku_model.dart';
 import 'package:pemesanan_tiket_pemancingan/Models/kolam_model.dart';
 import 'package:pemesanan_tiket_pemancingan/Views/drawer.dart';
+import 'package:pemesanan_tiket_pemancingan/Views/jadwal_tiket.dart';
 
 import '../ViewModels/repository.dart';
 
@@ -79,13 +80,9 @@ class _TiketState extends State<Tiket> {
                               child: TextButton(
                                   onPressed: () {
                                     if (!terisi) {
-                                      Navigator.pushNamed(
-                                        context,
-                                        "/jadwal_tiket",
-                                        arguments: {
-                                          'no_kolam': kolam.noKolam,
-                                          'bangku_model': kolam.bangku,
-                                        },
+                                      Navigator.push(
+                                        context, MaterialPageRoute(builder: (context) => Jadwaltiket(model: kolam, noBangku: index + 1),)
+                                        
                                       );
                                     }
                                   },

@@ -22,7 +22,7 @@ class _JadwaltiketState extends State<Jadwaltiket> {
    listBangku.add(bangku);
    final respons = await Repository().putKolam(listBangku, widget.model.id);
    if (respons){
-//respons berhasil
+print('berhasil');
    }
   }
 
@@ -48,7 +48,7 @@ class _JadwaltiketState extends State<Jadwaltiket> {
             ),
           ),
           ElevatedButton(
-            onPressed: () {},
+            onPressed: pesan,
             child: Text('Submit'),
           ),
         ],

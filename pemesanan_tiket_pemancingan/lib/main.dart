@@ -21,10 +21,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/', 
       routes: {
         '/': (context) => Splash(),
-        '/home': (context) => MyHomePage(),
         '/berita':(context) => Berita(),
         '/tiket':(context) => Tiket(),
-        '/jadwal_tiket': (context) => Jadwaltiket(),
+        
       },
     );
   }
