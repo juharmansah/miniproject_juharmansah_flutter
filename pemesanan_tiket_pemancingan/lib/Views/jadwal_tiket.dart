@@ -14,16 +14,15 @@ class Jadwaltiket extends StatefulWidget {
 }
 
 class _JadwaltiketState extends State<Jadwaltiket> {
-
   final namaController = TextEditingController();
-  void pesan () async {
-   List listBangku = widget.model.bangku;
-   final bangku = BangkuModel(widget.noBangku, namaController.text, 'kosong');
-   listBangku.add(bangku);
-   final respons = await Repository().putKolam(listBangku, widget.model.id);
-   if (respons){
-print('berhasil');
-   }
+  void pesan() async {
+    List listBangku = widget.model.bangku;
+    final bangku = BangkuModel(widget.noBangku, namaController.text, 'kosong');
+    listBangku.add(bangku);
+    final respons = await Repository().putKolam(listBangku, widget.model.id);
+    if (respons) {
+      print('berhasil');
+    }
   }
 
   @override
@@ -41,8 +40,8 @@ print('berhasil');
       drawer: Dashboard(),
       body: Column(
         children: [
-         
           TextField(
+            controller: namaController,
             decoration: InputDecoration(
               labelText: 'nama',
             ),
