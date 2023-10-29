@@ -1,11 +1,12 @@
 import 'dart:convert';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 import 'package:pemesanan_tiket_pemancingan/Models/berita_model.dart';
 import 'package:pemesanan_tiket_pemancingan/Models/kolam_model.dart';
+import 'package:pemesanan_tiket_pemancingan/Models/user_model.dart';
 import 'package:pemesanan_tiket_pemancingan/Views/berita.dart';
 import 'package:pemesanan_tiket_pemancingan/Models/bangku_model.dart';
-
 
 class Repository {
   final baseUrl = 'https://65335062d80bd20280f66220.mockapi.io/';
@@ -42,7 +43,7 @@ class Repository {
         {'bangku': listBangku},
       ),
     );
-    
+
     if (respons.statusCode == 200) {
       return true;
     } else {
@@ -50,3 +51,22 @@ class Repository {
     }
   }
 }
+
+class FirebaseRepository {
+  final _db = FirebaseFirestore.instance;
+  Future<UserModel?> getUser(String username, String password) async {
+    final snapshot = await _db
+        .collection("users")
+        .where("username", isEqualTo: username)
+        .where("password", isEqualTo: password)
+        .get();
+        
+    UserModel? userData = snapshot.docs.isEmpty
+        ? null
+        : snapshot.docs.map((e) => UserModel.fromSnapshot(e)).first;
+    return userData;
+  }
+  
+}
+
+

@@ -65,7 +65,7 @@ class _TiketState extends State<Tiket> {
                           itemCount: 4,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
-                            Color warna = Colors.grey;
+                            Color warna = Colors.white;
                             bool terisi = false;
                             try {
                               if (kolam.bangku[index].status == 'ada') {
@@ -73,20 +73,39 @@ class _TiketState extends State<Tiket> {
                                 terisi = true;
                               }
                             } catch (e) {}
-                            return Container(
-                              height: 100,
-                              width: 100,
-                              color: warna,
-                              child: TextButton(
-                                  onPressed: () {
-                                    if (!terisi) {
-                                      Navigator.push(
-                                        context, MaterialPageRoute(builder: (context) => Jadwaltiket(model: kolam, noBangku: index + 1),)
-                                        
-                                      );
-                                    }
-                                  },
-                                  child: Text('${index + 1}')),
+                            return Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Container(
+                                height: 100,
+                                width: 80,
+                                decoration: BoxDecoration(
+                                  color: warna,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                ),
+                                child: TextButton(
+                                    onPressed: () {
+                                      if (!terisi) {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                              builder: (context) => Jadwaltiket(
+                                                  model: kolam,
+                                                  noBangku: index + 1),
+                                            ));
+                                      }
+                                    },
+                                    child: Text(
+                                      '${index + 1}',
+                                      style: TextStyle(
+                                        color: Colors
+                                            .black, 
+                                        fontWeight: FontWeight
+                                            .bold, 
+                                        fontSize:
+                                            18.0, 
+                                      ),
+                                    ),),
+                              ),
                             );
                           },
                         ),

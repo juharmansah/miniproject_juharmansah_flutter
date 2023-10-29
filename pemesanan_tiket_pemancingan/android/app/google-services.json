@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "526875000359",
+    "project_id": "pemancingan-74838",
+    "storage_bucket": "pemancingan-74838.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:526875000359:android:6c10a35dae8e2303461802",
+        "android_client_info": {
+          "package_name": "com.example.pemesanan_tiket_pemancingan"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlcxDThxfrJnxfJu2DU1ERRmEq0OIfsWE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

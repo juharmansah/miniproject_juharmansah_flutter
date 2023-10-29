@@ -39,6 +39,9 @@ dependencies:
   carousel_slider: ^4.2.1
   http: ^1.1.0
   dio: ^5.3.3
+  get: ^4.6.5
+  firebase_core: ^2.20.0
+  cloud_firestore: ^4.12.1
 
 dev_dependencies:
   flutter_test:

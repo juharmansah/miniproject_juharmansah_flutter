@@ -11,23 +11,19 @@ class Berita extends StatefulWidget {
 }
 
 class _BeritaState extends State<Berita> {
-
-  List<BeritaModel> listBerita = [
-    
-  ];
-  void getBerita()async{
+  List<BeritaModel> listBerita = [];
+  void getBerita() async {
     listBerita = await Repository().getBerita();
-    setState(() {
-      
-    });
+    setState(() {});
   }
-  
-@override
+
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     getBerita();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,33 +37,61 @@ class _BeritaState extends State<Berita> {
         ),
       ),
       drawer: Dashboard(),
-
-      body: Column(
+      body: 
+      Column(
         children: [
           Text('Berita'),
-  
-        Expanded(
-          child: ListView.builder(
-            
-            itemCount: listBerita.length,
-            itemBuilder: (context, index) {
-              final berita = listBerita[index];
-              return Container(
-                width: double.infinity,
-                color: Colors.grey,
-                child: Column(
-                  children: [
-                    Text(berita.judul),
-                    Image.network(berita.gambar),
-                    Text(berita.isi),
-                  ],
-                ),
-              );
-            },
+          Expanded(
+            child: ListView.builder(
+              itemCount: listBerita.length,
+              itemBuilder: (context, index) {
+                final berita = listBerita[index];
+                return Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Container(
+                    margin: EdgeInsets.only(bottom: 8.0),
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                      color: Colors.grey,
+                      borderRadius: BorderRadius.circular(
+                          10.0), // Sesuaikan radius sesuai kebutuhan
+                    ),
+                    child:
+                     Column(
+                      children: [
+                        Text(
+                          berita.judul,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0, 
+                            
+                          ),
+                        ),
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(
+                              20.0), // Sesuaikan radius sesuai kebutuhan
+                          child: SizedBox(
+                            width: double
+                                .infinity, // Sesuaikan lebar sesuai kebutuhan
+                            height: 200, // Sesuaikan tinggi sesuai kebutuhan
+                            child: Image.network(
+                              berita.gambar,
+                              fit: BoxFit
+                                  .cover, // Menyesuaikan gambar ke kotak yang diberikan
+                            ),
+                          ),
+                        ),
+                        Text(berita.isi),
+                      ],
+                    ),
+                  ),
+                );
+              },
+            ),
           ),
-        ),
         ],
       ),
     );
-  }
+    
+}
 }
