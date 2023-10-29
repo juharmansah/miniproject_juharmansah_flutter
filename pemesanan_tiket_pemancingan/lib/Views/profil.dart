@@ -2,10 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:pemesanan_tiket_pemancingan/ViewModels/repository.dart';
 
+import '../Models/user_model.dart';
+
 
 class ProfilePage extends StatelessWidget {
-  Future getUser()async{
-    final user = await FirebaseRepository().getUser(username, password)
+  UserModel getUser(BuildContext context){
+    
+    final UserModel user = ModalRoute.of(context)!.settings.arguments as UserModel;
+   return user;
   }
   @override
   Widget build(BuildContext context) {
@@ -43,8 +47,9 @@ class ProfilePage extends StatelessWidget {
             ),
             SizedBox(height: 16.0),
             ElevatedButton(
-              onPressed: () async{
-                await FirebaseFirestore.instance.collection('users').
+              onPressed: ()async {
+                await FirebaseFirestore.instance.collection('users').doc(getUser(context).id).delete();
+                Navigator.pushNamedAndRemoveUntil(context, '/login', (route) => false);
               },
               child: Text('Logout'),
             ),

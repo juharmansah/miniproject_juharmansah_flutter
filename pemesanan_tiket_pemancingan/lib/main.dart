@@ -6,6 +6,7 @@ import 'package:pemesanan_tiket_pemancingan/Views/chatbot.dart';
 import 'package:pemesanan_tiket_pemancingan/Views/daftar.dart';
 import 'package:pemesanan_tiket_pemancingan/Views/jadwal_tiket.dart';
 import 'package:pemesanan_tiket_pemancingan/Views/login.dart';
+import 'package:pemesanan_tiket_pemancingan/Views/struk_tiket.dart';
 import 'package:pemesanan_tiket_pemancingan/Views/tiket.dart';
 import 'Views/profil.dart';
 import 'Views/splashscreen.dart';
@@ -36,6 +37,7 @@ class MyApp extends StatelessWidget {
         '/profil': (context) => ProfilePage(),
         '/berita':(context) => Berita(),
         '/tiket':(context) => Tiket(),
+        '/struk':(context) => SuccessPage(),
         '/chatbot': (context) => ChatBotScreen(),
         
       },

@@ -7,6 +7,8 @@ import 'package:pemesanan_tiket_pemancingan/Models/kolam_model.dart';
 import 'package:pemesanan_tiket_pemancingan/Views/berita.dart';
 import 'package:pemesanan_tiket_pemancingan/Models/bangku_model.dart';
 
+import '../Models/user_model.dart';
+
 
 class Repository {
   final baseUrl = 'https://65335062d80bd20280f66220.mockapi.io/';

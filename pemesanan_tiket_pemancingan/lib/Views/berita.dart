@@ -12,6 +12,7 @@ class Berita extends StatefulWidget {
 
 class _BeritaState extends State<Berita> {
   List<BeritaModel> listBerita = [];
+  
   void getBerita() async {
     listBerita = await Repository().getBerita();
     setState(() {});
@@ -26,8 +27,15 @@ class _BeritaState extends State<Berita> {
 
   @override
   Widget build(BuildContext context) {
+
+    final user = ModalRoute.of(context)!.settings.arguments;
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){
+            Navigator.pushNamed(context, '/profil', arguments: user);
+          }, icon:Icon (Icons.person)),
+        ],
         title: Center(child: Text("Ayo, Memancing")),
         backgroundColor: Color(0xFF3CC56B),
         shape: RoundedRectangleBorder(

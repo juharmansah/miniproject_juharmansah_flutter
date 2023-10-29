@@ -12,7 +12,7 @@ class _SplashState extends State<Splash> {
     super.initState();
     Future.delayed(
       Duration(seconds: 3), 
-      () => Navigator.pushReplacementNamed(context, '/profil')
+      () => Navigator.pushReplacementNamed(context, '/login')
     );
   }
 

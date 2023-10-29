@@ -21,7 +21,7 @@ class _JadwaltiketState extends State<Jadwaltiket> {
     listBangku.add(bangku);
     final respons = await Repository().putKolam(listBangku, widget.model.id);
     if (respons) {
-      print('berhasil');
+      Navigator.pushReplacementNamed(context, '/struk');
     }
   }
 
